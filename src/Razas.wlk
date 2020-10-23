@@ -8,6 +8,10 @@ class Biciclope inherits Minion {
 		estamina = estamina.min(10)
 	}
 	
+	override method estamina() {
+		return estamina.min(10)
+	}
+	
 	method defiendeMal() {
 		return false
 	}
