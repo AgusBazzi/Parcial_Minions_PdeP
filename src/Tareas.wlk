@@ -1,35 +1,35 @@
-class arreglarUnaMaquina {
+class ArreglarUnaMaquina {
 	
 	const complejidad
 	
 	method dificultadPara(unMinion) {
-		return dificultad * 2
+		return complejidad * 2
 	}
 }
 
-class defenderUnSector {
+
+class DefenderUnSector {
 	
 	const gradoAmenaza
 	
 	method dificultadPara(unMinion) {
-		const dificultad = gradoAmenaza
+		var dificultad = gradoAmenaza
 		if (unMinion.defiendeMal()) dificultad = dificultad * 2
 		return dificultad
 	}
 }
 
-class limpiarUnSector {
+
+class LimpiarUnSector {
 	
 	method dificultadPara(unMinion) {
 		return dificultadLimpieza.dificultad()
 	}
 }
 
+
 object dificultadLimpieza {
 	
-	var dificultad
+	var property dificultad = 10
 	
-	method dificultad() {
-		return dificultad
-	}
 }
