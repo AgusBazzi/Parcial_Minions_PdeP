@@ -53,16 +53,11 @@ class Minion {
 	}
 	
 	method puedoRealizar(unaTarea) {
-		return unaTarea.cumpleRequerimientos(self)
+		return unaTarea.cumpleRequerimientos(self, rol)
 	}
 	
-	method completarTarea(unaTarea) {
-		unaTarea.serRealizadaPor(self)
+	method agregarTarea(unaTarea) {
 		tareasRealizadas.add(unaTarea)
-	}
-	
-	method tengoHerramienta(unaHerramienta) {
-		return rol.tengoHerramienta(unaHerramienta)
 	}
 		
 	method arreglarMaquina(estaminaUtilizada){
@@ -84,15 +79,7 @@ class Minion {
 	
 	method defiendeMal()
 	
-	method combatir() {
-		rol.combatir(self)
-	}
-	
 	method perderMitadEstamina() {
 		estamina = estamina / 2
-	}
-	
-	method limpiarSector(estaminaUtilizada) {
-		rol.limpiarSector(estaminaUtilizada, self)
 	}
 }

@@ -12,19 +12,19 @@ class ArreglarUnaMaquina {
 	
 	// ------ Punto 3 ------ //
 	
-	method cumpleRequerimientos(unMinion) {
-		return self.tieneEstaminaSuficiente(unMinion) && self.tieneHerramientasNecesarias(unMinion)
+	method cumpleRequerimientos(unMinion, unRol) {
+		return self.tieneEstaminaSuficiente(unMinion) && self.tieneHerramientasNecesarias(unRol)
 	}
 	
 	method tieneEstaminaSuficiente(unMinion) {
 		return unMinion.estamina() >= complejidad
 	}
 	
-	method tieneHerramientasNecesarias(unMinion) {
-		return herramientasNecesarias.all { requerida => unMinion.tengoHerramienta(requerida) }
+	method tieneHerramientasNecesarias(unRol) {
+		return herramientasNecesarias.all { requerida => unRol.tengoHerramienta(requerida) }
 	}
 	
-	method serRealizadaPor(unMinion) {
+	method serRealizadaPor(unMinion, unRol) {
 		unMinion.arreglarMaquina(complejidad)
 	}
 }
@@ -45,16 +45,16 @@ class DefenderUnSector {
 	
 	// ------ Punto 3 ------ //
 	
-	method cumpleRequerimientos(unMinion) {
-		return !unMinion.soyMucama() && self.tieneFuerzaNecesaria(unMinion)
+	method cumpleRequerimientos(unMinion, unRol) {
+		return !unRol.soyMucama() && self.tieneFuerzaNecesaria(unMinion)
 	}
 	
 	method tieneFuerzaNecesaria(unMinion) {
 		return unMinion.fuerza() >= gradoAmenaza
 	}
 	
-	method serRealizadaPor(unMinion) {
-		unMinion.combatir()
+	method serRealizadaPor(unMinion, unRol) {
+		unRol.combatir(unMinion)
 	}
 }
 
@@ -72,8 +72,8 @@ class LimpiarUnSector {
 	
 	// ------ Punto 3 ------ //
 	
-	method cumpleRequerimientos(unMinion) {
-		return self.tieneEstaminaSuficiente(unMinion) || unMinion.soyMucama()
+	method cumpleRequerimientos(unMinion, unRol) {
+		return self.tieneEstaminaSuficiente(unMinion) || unRol.soyMucama()
 	}
 	
 	method tieneEstaminaSuficiente(unMinion) {
@@ -85,9 +85,9 @@ class LimpiarUnSector {
 		else return 1
 	}
 	
-	method serRealizadaPor(unMinion) {
+	method serRealizadaPor(unMinion, unRol) {
 		const estaminaUtilizada = self.estaminaNecesaria()
-		unMinion.limpiarSector(estaminaUtilizada)
+		unRol.limpiarSector(estaminaUtilizada, unMinion)
 	}
 }
 

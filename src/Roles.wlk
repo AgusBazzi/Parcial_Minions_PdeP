@@ -7,7 +7,9 @@ class Rol {
 	}
 	
 	method completarTarea(unaTarea, yoMinion) {
-		yoMinion.completarTarea(unaTarea)
+		unaTarea.serRealizadaPor(yoMinion, self)
+		yoMinion.agregarTarea(unaTarea)
+		
 	}
 	
 	method tengoHerramienta(unaHerramienta) {
@@ -22,12 +24,12 @@ class Rol {
 		return false
 	}
 	
-	method limpiarSector(estaminaUtilizada, yoMinion) {
-		yoMinion.perderEstamina(estaminaUtilizada)
-	}
-	
 	method combatir(yoMinion) {
 		yoMinion.perderMitadEstamina()
+	}
+	
+	method limpiarSector(estaminaUtilizada, yoMinion) {
+		yoMinion.perderEstamina(estaminaUtilizada)
 	}
 }
 
