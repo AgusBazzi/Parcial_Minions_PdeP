@@ -19,6 +19,10 @@ class Soldado {
 		// nada
 	}
 	
+	method limpiarSector(estaminaUtilizada, yoMinion) {
+		yoMinion.perderEstamina(estaminaUtilizada)
+	}
+	
 	
 }
 
@@ -42,6 +46,10 @@ class obrero {
 		yoMinion.perderMitadEstamina()
 	}
 	
+	method limpiarSector(estaminaUtilizada, yoMinion) {
+		yoMinion.perderEstamina(estaminaUtilizada)
+	}
+	
 }
 
 class mucama {
@@ -60,5 +68,9 @@ class mucama {
 	
 	method combatir(yoMinion) {
 		yoMinion.perderMitadEstamina()
+	}
+	
+	method limpiarSector(estaminaUtilizada, yoMinion) {
+		// nada
 	}
 }

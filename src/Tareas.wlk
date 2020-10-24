@@ -20,7 +20,7 @@ class ArreglarUnaMaquina {
 	}
 	
 	method serRealizadaPor(unMinion) {
-		unMinion.perderEstamina(complejidad)
+		unMinion.arreglarMaquina(complejidad)
 	}
 }
 
@@ -51,16 +51,28 @@ class DefenderUnSector {
 
 class LimpiarUnSector {
 	
+	const soySectorGrande
+	
 	method dificultadPara(unMinion) {
 		return dificultadLimpieza.dificultad()
 	}
 	
 	method cumpleRequerimientos(unMinion) {
-		
+		return self.tieneEstaminaSuficiente(unMinion) || unMinion.soyMucama()
+	}
+	
+	method tieneEstaminaSuficiente(unMinion) {
+		return unMinion.estamina() >= self.estaminaNecesaria()
+	}
+	
+	method estaminaNecesaria() {
+		if (soySectorGrande) return 4
+		else return 1
 	}
 	
 	method serRealizadaPor(unMinion) {
-		
+		const estaminaUtilizada = self.estaminaNecesaria()
+		unMinion.limpiarSector(estaminaUtilizada)
 	}
 }
 

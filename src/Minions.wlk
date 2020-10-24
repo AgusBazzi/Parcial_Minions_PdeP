@@ -56,6 +56,10 @@ class Minion {
 		return estamina
 	}
 	
+	method arreglarMaquina(estaminaUtilizada){
+		self.perderEstamina(estaminaUtilizada)
+	}
+	
 	method perderEstamina(unaCantidad) {
 		estamina = estamina - unaCantidad
 	}
@@ -75,5 +79,9 @@ class Minion {
 	
 	method perderMitadEstamina() {
 		estamina = estamina / 2
+	}
+	
+	method limpiarSector(estaminaUtilizada) {
+		rol.limpiarSector(estaminaUtilizada, self)
 	}
 }
