@@ -7,6 +7,19 @@ class Soldado {
 		return false
 	}
 	
+	method fuerzaAdicional() {
+		return practica * 2
+	}
+	
+	method soyMucama() {
+		return false
+	}
+	
+	method combatir(yoMinion) {
+		// nada
+	}
+	
+	
 }
 
 class obrero {
@@ -17,6 +30,18 @@ class obrero {
 		return herramientas.contains(unaHerramienta)
 	}
 	
+	method fuerzaAdicional() {
+		return 0
+	}
+	
+	method soyMucama() {
+		return false
+	}
+	
+	method combatir(yoMinion) {
+		yoMinion.perderMitadEstamina()
+	}
+	
 }
 
 class mucama {
@@ -25,4 +50,15 @@ class mucama {
 		return false
 	}
 	
+	method fuerzaAdicional() {
+		return 0
+	}
+	
+	method soyMucama() {
+		return true
+	}
+	
+	method combatir(yoMinion) {
+		yoMinion.perderMitadEstamina()
+	}
 }

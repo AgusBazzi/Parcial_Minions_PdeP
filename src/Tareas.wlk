@@ -36,7 +36,15 @@ class DefenderUnSector {
 	}
 	
 	method cumpleRequerimientos(unMinion) {
-		
+		return !unMinion.soyMucama() && self.tieneFuerzaNecesaria(unMinion)
+	}
+	
+	method tieneFuerzaNecesaria(unMinion) {
+		return unMinion.fuerza() >= gradoAmenaza
+	}
+	
+	method serRealizadaPor(unMinion) {
+		unMinion.combatir()
 	}
 }
 
@@ -48,6 +56,10 @@ class LimpiarUnSector {
 	}
 	
 	method cumpleRequerimientos(unMinion) {
+		
+	}
+	
+	method serRealizadaPor(unMinion) {
 		
 	}
 }

@@ -23,7 +23,10 @@ class Ciclope inherits Minion {
 	method defiendeMal() {
 		return true
 	}
-
+	
+	override method fuerza() {
+		return super() / 2
+	}
 	
 }
 

@@ -60,4 +60,20 @@ class Minion {
 		estamina = estamina - unaCantidad
 	}
 	
+	method fuerza() {
+		const fuerzaBasica = estamina / 2 + 2
+		return fuerzaBasica + self.fuerzaAdicionalRol()
+	}
+	
+	method fuerzaAdicionalRol() {
+		return rol.fuerzaAdicional()
+	}
+	
+	method combatir() {
+		rol.combatir(self)
+	}
+	
+	method perderMitadEstamina() {
+		estamina = estamina / 2
+	}
 }
