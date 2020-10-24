@@ -17,9 +17,13 @@ class Minion {
 		self.recuperarEstamina(cantidadEstamina)
 	}
 	
-	method recuperarEstamina(unaCantidad)
+	method recuperarEstamina(unaCantidad) {
+		estamina = estamina + unaCantidad
+	}
 	
-	method estamina()
+	method estamina() {
+		return estamina
+	}
 	
 	
 	// ------ Punto 2 ------ //
@@ -40,8 +44,8 @@ class Minion {
 	// ------ Punto 3 ------ //
 	
 	method realizarTarea(unaTarea) {
-		if (self.puedoRealizar(unaTarea)) {
-			self.completarTarea(unaTarea)
+		if (rol.puedoRealizar(unaTarea, self)) {
+			rol.completarTarea(unaTarea, self)
 		}
 		else {
 			throw new Exception ( message = "El Minion no puede realizar la tarea")
