@@ -1,3 +1,5 @@
+// ------ Punto 3 ------ //
+
 class Rol {
 	
 	method tengoHerramienta(unaHerramienta) {

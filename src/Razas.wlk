@@ -3,6 +3,8 @@ import Minions.*
 
 class Biciclope inherits Minion {
 	
+	// ------ Punto 1 ------ //
+	
 	override method recuperarEstamina(unaCantidad) {
 		super(unaCantidad)
 		estamina = estamina.min(10)
@@ -12,6 +14,9 @@ class Biciclope inherits Minion {
 		return estamina.min(10)
 	}
 	
+	
+	// ------ Punto 3 ------ //
+	
 	method defiendeMal() {
 		return false
 	}
@@ -19,6 +24,8 @@ class Biciclope inherits Minion {
 }
 
 class Ciclope inherits Minion {
+	
+	// ------ Punto 3 ------ //
 	
 	method defiendeMal() {
 		return true

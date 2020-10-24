@@ -9,6 +9,9 @@ class Minion {
 	var tareasRealizadas = []
 	var rol
 	
+	
+	// ------ Punto 1 ------ //
+	
 	method comerFruta(unaFruta) {
 		const cantidadEstamina = unaFruta.energiaQueDoy()
 		self.recuperarEstamina(cantidadEstamina)
@@ -17,6 +20,9 @@ class Minion {
 	method recuperarEstamina(unaCantidad)
 	
 	method estamina()
+	
+	
+	// ------ Punto 2 ------ //
 	
 	method experiencia() {
 		return self.cantidadTareasRealizadas() * self.totalDificultadesTareas()
@@ -29,6 +35,9 @@ class Minion {
 	method totalDificultadesTareas() {
 		return tareasRealizadas.sum { tarea => tarea.dificultadPara(self) }
 	}
+	
+	
+	// ------ Punto 3 ------ //
 	
 	method realizarTarea(unaTarea) {
 		if (self.puedoRealizar(unaTarea)) {

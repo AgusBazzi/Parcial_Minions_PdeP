@@ -3,9 +3,14 @@ class ArreglarUnaMaquina {
 	const complejidad
 	const herramientasNecesarias
 	
+	// ------ Punto 2 ------ //
+	
 	method dificultadPara(unMinion) {
 		return complejidad * 2
 	}
+	
+	
+	// ------ Punto 3 ------ //
 	
 	method cumpleRequerimientos(unMinion) {
 		return self.tieneEstaminaSuficiente(unMinion) && self.tieneHerramientasNecesarias(unMinion)
@@ -29,11 +34,16 @@ class DefenderUnSector {
 	
 	const gradoAmenaza
 	
+	// ------ Punto 2 ------ //
+	
 	method dificultadPara(unMinion) {
 		var dificultad = gradoAmenaza
 		if (unMinion.defiendeMal()) dificultad = dificultad * 2
 		return dificultad
 	}
+	
+	
+	// ------ Punto 3 ------ //
 	
 	method cumpleRequerimientos(unMinion) {
 		return !unMinion.soyMucama() && self.tieneFuerzaNecesaria(unMinion)
@@ -53,9 +63,14 @@ class LimpiarUnSector {
 	
 	const soySectorGrande
 	
+	// ------ Punto 2 ------ //
+	
 	method dificultadPara(unMinion) {
 		return dificultadLimpieza.dificultad()
 	}
+	
+	
+	// ------ Punto 3 ------ //
 	
 	method cumpleRequerimientos(unMinion) {
 		return self.tieneEstaminaSuficiente(unMinion) || unMinion.soyMucama()
@@ -78,6 +93,8 @@ class LimpiarUnSector {
 
 
 object dificultadLimpieza {
+	
+	// ------ Punto 2 ------ //
 	
 	var property dificultad = 10
 	

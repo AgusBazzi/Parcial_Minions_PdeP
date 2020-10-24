@@ -1,3 +1,5 @@
+// ------ Punto 1 ------ //
+
 object banana {
 	
 	method energiaQueDoy() {
