@@ -1,76 +1,60 @@
-class Soldado {
-	
-	var damageInicial
-	var practica = 0
+class Rol {
 	
 	method tengoHerramienta(unaHerramienta) {
 		return false
 	}
 	
 	method fuerzaAdicional() {
+		return 0
+	}
+	
+	method soyMucama() {
+		return false
+	}
+	
+	method limpiarSector(estaminaUtilizada, yoMinion) {
+		yoMinion.perderEstamina(estaminaUtilizada)
+	}
+	
+	method combatir(yoMinion) {
+		yoMinion.perderMitadEstamina()
+	}
+}
+
+
+class Soldado inherits Rol {
+	
+	var practica = 0
+	
+	override method fuerzaAdicional() {
 		return practica * 2
 	}
 	
-	method soyMucama() {
-		return false
+	override method combatir(yoMinion) {
+		practica = practica + 1
 	}
-	
-	method combatir(yoMinion) {
-		// nada
-	}
-	
-	method limpiarSector(estaminaUtilizada, yoMinion) {
-		yoMinion.perderEstamina(estaminaUtilizada)
-	}
-	
-	
+		
 }
 
-class obrero {
+
+class Obrero inherits Rol {
 	
 	const herramientas
 	
-	method tengoHerramienta(unaHerramienta) {
+	override method tengoHerramienta(unaHerramienta) {
 		return herramientas.contains(unaHerramienta)
-	}
-	
-	method fuerzaAdicional() {
-		return 0
-	}
-	
-	method soyMucama() {
-		return false
-	}
-	
-	method combatir(yoMinion) {
-		yoMinion.perderMitadEstamina()
-	}
-	
-	method limpiarSector(estaminaUtilizada, yoMinion) {
-		yoMinion.perderEstamina(estaminaUtilizada)
 	}
 	
 }
 
-class mucama {
+
+object mucama inherits Rol {
 	
-	method tengoHerramienta(unaHerramienta) {
-		return false
-	}
-	
-	method fuerzaAdicional() {
-		return 0
-	}
-	
-	method soyMucama() {
+	override method soyMucama() {
 		return true
 	}
 	
-	method combatir(yoMinion) {
-		yoMinion.perderMitadEstamina()
-	}
-	
-	method limpiarSector(estaminaUtilizada, yoMinion) {
+	override method limpiarSector(estaminaUtilizada, yoMinion) {
 		// nada
 	}
 }

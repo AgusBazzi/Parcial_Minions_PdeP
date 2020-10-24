@@ -14,9 +14,9 @@ class Minion {
 		self.recuperarEstamina(cantidadEstamina)
 	}
 	
-	method recuperarEstamina(unaCantidad) {
-		estamina = estamina + unaCantidad
-	}
+	method recuperarEstamina(unaCantidad)
+	
+	method estamina()
 	
 	method experiencia() {
 		return self.cantidadTareasRealizadas() * self.totalDificultadesTareas()
@@ -51,11 +51,7 @@ class Minion {
 	method tengoHerramienta(unaHerramienta) {
 		return rol.tengoHerramienta(unaHerramienta)
 	}
-	
-	method estamina() {
-		return estamina
-	}
-	
+		
 	method arreglarMaquina(estaminaUtilizada){
 		self.perderEstamina(estaminaUtilizada)
 	}
@@ -72,6 +68,8 @@ class Minion {
 	method fuerzaAdicionalRol() {
 		return rol.fuerzaAdicional()
 	}
+	
+	method defiendeMal()
 	
 	method combatir() {
 		rol.combatir(self)
